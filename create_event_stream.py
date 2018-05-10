@@ -8,8 +8,11 @@ client_id = 'a1b2c3d4e5f6g7h8i9j0'
 # API Key
 api_key = 'a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6'
 
+# If not using the North America console update this appropriately
+region = 'api.amp.cisco.com'
+
 # URL used to create new event streams
-url = 'https://{}:{}@api.amp.cisco.com/v1/event_streams'.format(client_id,api_key)
+url = 'https://{}:{}@{}/v1/event_streams'.format(client_id,api_key,region)
 
 # Ask the user for an event stream name
 name = raw_input('Enter a name for the event stream you would like to create: ')
