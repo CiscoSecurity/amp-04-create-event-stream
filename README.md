@@ -6,8 +6,6 @@ Simple script for creating an event stream using the /v1/event_streams endpoint 
 - Line 21: client_id 
 - Line 24: api_key
 
-If you're not provisioned in the North American console you must also change line 12
-
 #### Example script output:  
 ```
 Sucesfully authenticated to: North America
