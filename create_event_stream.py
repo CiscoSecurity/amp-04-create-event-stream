@@ -2,17 +2,35 @@ import requests
 import sys
 import json
 
+def verify_auth(client_id,api_key):
+       region_domains = {'api.amp.cisco.com':'North America',
+                         'api.apjc.amp.cisco.com':'Asia',
+                         'api.eu.amp.cisco.com':'Europe'
+                         }
+
+       for domain in region_domains:
+              url = 'https://{}/v1/version'.format(domain)
+              r = requests.get(url, auth=(client_id, api_key))
+
+              if r.status_code == 200:
+                     return domain,region_domains[domain]   
+
+       sys.exit('It doesn\'t look like the credentials you provided are valid in any region')
+
 # 3rd Party API Client ID
 client_id = 'a1b2c3d4e5f6g7h8i9j0'
 
 # API Key
 api_key = 'a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6'
 
-# If not using the North America console update this appropriately
-region = 'api.amp.cisco.com'
+# Check which cloud the credentials are valid in
+domain,region = verify_auth(client_id,api_key)
+
+# Output which region will be used
+print 'Sucesfully authenticated to: {}'.format(region)
 
 # URL used to create new event streams
-url = 'https://{}/v1/event_streams'.format(region)
+url = 'https://{}/v1/event_streams'.format(domain)
 
 # Ask the user for an event stream name
 name = raw_input('Enter a name for the event stream you would like to create: ')
@@ -78,7 +96,3 @@ stream_url = 'amqps://{}:{}@{}:{}'.format(user_name,password,host,port)
 
 print '\n{}'.format(stream_url)
 print '''\nNOTE: If you are writing your own client make sure to set the 'passive' and 'durable' bits True'''
-
-
-
-
