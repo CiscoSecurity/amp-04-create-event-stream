@@ -12,7 +12,7 @@ api_key = 'a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6'
 region = 'api.amp.cisco.com'
 
 # URL used to create new event streams
-url = 'https://{}:{}@{}/v1/event_streams'.format(client_id,api_key,region)
+url = 'https://{}/v1/event_streams'.format(region)
 
 # Ask the user for an event stream name
 name = raw_input('Enter a name for the event stream you would like to create: ')
@@ -41,7 +41,7 @@ headers = {'accept': 'application/json', 'content-type': 'application/json', 'Ac
 payload = {"name":name,"event_type":all_events,"group_guid":group_guid}
 
 # POST to API to create new event stream
-r = requests.post(url, headers=headers, data=json.dumps(payload))
+r = requests.post(url, headers=headers, data=json.dumps(payload), auth=(client_id,api_key))
 
 # Check if errors were returned
 if r.status_code // 100 != 2:
