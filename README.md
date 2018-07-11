@@ -3,8 +3,8 @@
 Simple script for creating an event stream using the /v1/event_streams endpoint documented [here](https://api-docs.amp.cisco.com/api_actions/details?api_action=POST+%2Fv1%2Fevent_streams&api_host=api.amp.cisco.com&api_resource=EventStream&api_version=v1)
 
 ### Before using you must update the following:
-- Line 21: client_id 
-- Line 24: api_key
+- Line 24: client_id 
+- Line 27: api_key
 
 #### Example script output:  
 ```
