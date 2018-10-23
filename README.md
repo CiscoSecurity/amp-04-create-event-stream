@@ -6,7 +6,7 @@ Script for creating an event stream using the /v1/event_streams endpoint documen
 - Line 24: client_id 
 - Line 27: api_key
 
-#### Example script output:  
+### Example script output:  
 ```
 Sucesfully authenticated to: North America
 Enter a name for the event stream you would like to create: All Groups All Events
