@@ -40,7 +40,7 @@ session.headers.update(headers)
 domain, region = verify_auth()
 
 # Output which region will be used
-print('Sucesfully authenticated to: {}\n'.format(region))
+print('Successfully authenticated to: {}\n'.format(region))
 
 # URL used to create new event streams
 event_streams_url = 'https://{}/v1/event_streams'.format(domain)
@@ -83,7 +83,7 @@ port = data['amqp_credentials']['port']
 proto = data['amqp_credentials']['proto']
 
 # Print the values for the new stream
-print('Stream Created Sucesfully!\n')
+print('Stream Created Successfully!\n')
 print('{:.<15} {}'.format('Stream name:', name))
 print('{:.<15} {}'.format('Stream ID:', stream_id))
 print('\nAMQP Credentials:')
