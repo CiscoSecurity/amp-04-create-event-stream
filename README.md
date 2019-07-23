@@ -1,6 +1,6 @@
 [![Gitter chat](https://img.shields.io/badge/gitter-join%20chat-brightgreen.svg)](https://gitter.im/CiscoSecurity/AMP-for-Endpoints "Gitter chat")
 
-### AMP for Endpoints Event Stream Creator:
+### AMP for Endpoints Create Event Stream:
 
 Script for creating an event stream using the /v1/event_streams endpoint documented [here](https://api-docs.amp.cisco.com/api_actions/details?api_action=POST+%2Fv1%2Fevent_streams&api_host=api.amp.cisco.com&api_resource=EventStream&api_version=v1). This script will automatically determine which AMP clound to create the event stream on based on the credentials. It also queries the /event_types API endpoint to get a current list of ALL event_type IDs at time of creation. By default, event streams created by this script will collect all events for all groups in an organization.
 
