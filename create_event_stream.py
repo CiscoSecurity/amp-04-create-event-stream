@@ -44,11 +44,6 @@ print('Successfully authenticated to: {}\n'.format(region))
 
 # URL used to create new event streams
 event_streams_url = 'https://{}/v1/event_streams'.format(domain)
-event_types_url = 'https://{}/v1/event_types'.format(domain)
-
-# Query the event_types API endpoint to get a list of all event types
-# If you would like to specify only some event types remove the comprehension and enter them manualy
-all_events = [event['id'] for event in session.get(event_types_url).json()['data']]
 
 # Ask the user for an event stream name
 name = input('Enter a name for the event stream you would like to create: ')
@@ -58,7 +53,7 @@ name = input('Enter a name for the event stream you would like to create: ')
 group_guid = []
 
 # Build the payload
-payload = {"name":name, "event_type":all_events, "group_guid":group_guid}
+payload = {"name":name, "group_guid":group_guid}
 
 # POST to API to create new event stream
 post_req = session.post(event_streams_url, data=json.dumps(payload))
